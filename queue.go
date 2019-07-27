@@ -6,7 +6,7 @@ import (
 )
 
 // ErrQueue is for error if queue is empty.
-var ErrQueue = errors.New("queue is empty")
+var ErrEmptyQueue = errors.New("queue is empty")
 
 // Queue Data Container
 type Queue struct {
@@ -29,7 +29,7 @@ func (q *Queue) Enqueue(value interface{}) {
 // Dequeue : Remove an item from queue (FIFO)
 func (q *Queue) Dequeue() (interface{}, error) {
 	if q.Length() < 1 {
-		return nil, ErrQueue
+		return nil, ErrEmptyQueue
 	}
 
 	elem := q.container.Back()

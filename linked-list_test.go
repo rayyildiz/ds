@@ -38,3 +38,22 @@ func TestLinkedList_Insert2(t *testing.T) {
 		t.Error("LinkedList size should be 3")
 	}
 }
+
+func BenchmarkLinkedListInsert(b *testing.B) {
+	l := NewLinkedList()
+
+	for i := 0; i < b.N; i++ {
+		l.Insert(".")
+	}
+}
+
+func BenchmarkLinkedListCount(b *testing.B) {
+	l := NewLinkedList()
+	for i := 0; i < 1000; i++ {
+		l.Insert(".")
+	}
+
+	for i := 0; i < b.N; i++ {
+		l.Count()
+	}
+}

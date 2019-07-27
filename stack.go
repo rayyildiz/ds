@@ -3,18 +3,18 @@ package ds
 import "errors"
 
 // ErrStack is error if stack is empty.
-var ErrStack = errors.New("stack is empty")
+var ErrEmptyStack = errors.New("stack is empty")
 
 // Stack is for root and root node.
 type Stack struct {
-	root *StackItem
+	root *stackItem
 	size int
 }
 
 // StackItem is node for data.
-type StackItem struct {
+type stackItem struct {
 	value interface{}
-	next  *StackItem
+	next  *stackItem
 }
 
 // NewStack returns a new Stack object.
@@ -26,7 +26,7 @@ func NewStack() *Stack {
 
 // Push a item to the stack.
 func (stack *Stack) Push(value interface{}) {
-	stack.root = &StackItem{value, stack.root}
+	stack.root = &stackItem{value, stack.root}
 
 	stack.size++
 }
@@ -46,5 +46,5 @@ func (stack *Stack) Pop() (interface{}, error) {
 		return ret.value, nil
 	}
 
-	return nil, ErrStack
+	return nil, ErrEmptyStack
 }

@@ -77,3 +77,23 @@ func TestPop(t *testing.T) {
 		t.Error("An empty element")
 	}
 }
+
+func BenchmarkStackPush(b *testing.B) {
+	s := NewStack()
+
+	for i := 0; i < b.N; i++ {
+		s.Push(".")
+	}
+}
+
+func BenchmarkStackCount(b *testing.B) {
+	s := NewStack()
+
+	for i := 0; i < 10; i++ {
+		s.Push(".")
+	}
+
+	for i := 0; i < b.N; i++ {
+		s.Length()
+	}
+}

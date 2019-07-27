@@ -72,3 +72,11 @@ func TestDequeue(t *testing.T) {
 		t.Error("Error at dequeue for empty")
 	}
 }
+
+func BenchmarkQueueEnqueue(b *testing.B) {
+	q := NewQueue()
+
+	for i := 0; i < b.N; i++ {
+		q.Enqueue(".")
+	}
+}

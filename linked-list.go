@@ -1,14 +1,14 @@
 package ds
 
 // Node is data container of LinkedList.
-type Node struct {
-	next *Node
+type node struct {
+	next *node
 	data interface{}
 }
 
 // LinkedList container.
 type LinkedList struct {
-	head *Node
+	head *node
 }
 
 // NewLinkedList : Create a new LinkedList object whose root is nil.
@@ -22,25 +22,12 @@ func NewLinkedList() *LinkedList {
 
 // Insert : inserting new item to linked-list.
 func (list *LinkedList) Insert(data interface{}) {
-	n := Node{
+	n := node{
 		data: data,
-		next: nil,
+		next: list.head,
 	}
 
-	temp := list.head
-	if temp == nil {
-		list.head = &n
-	} else {
-
-		for {
-			if temp.next == nil {
-				break
-			}
-			temp = temp.next
-		}
-
-		temp.next = &n
-	}
+	list.head = &n
 }
 
 // Count : Size of elements.
