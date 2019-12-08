@@ -8,7 +8,7 @@
 
 To get this examples
 
-    go get -u github.com/rayyildiz/ds
+    go get -u go.rayyildiz.dev/ds
 
 
 ### Stack

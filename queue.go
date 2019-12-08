@@ -5,7 +5,7 @@ import (
 	"errors"
 )
 
-// ErrQueue is for error if queue is empty.
+// ErrEmptyQueue is for error if queue is empty.
 var ErrEmptyQueue = errors.New("queue is empty")
 
 // Queue Data Container
